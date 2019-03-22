@@ -14,20 +14,32 @@ class LearnMoreViewController: UIViewController {
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var backButton: UIBarButtonItem!
     
-    @IBAction func CPICButtonClick(sender: AnyObject) {
+    @IBAction func CPICButtonClick(_ sender: AnyObject) {
         openURL(urlStr: "https://cpicpgx.org")
     }
-    @IBAction func PharmGKBClicked(sender: AnyObject) {
+    @IBAction func PharmGKBClicked(_ sender: AnyObject) {
         openURL(urlStr: "https://pharmgkb.org")
     }
-    @IBAction func PGRNClicked(sender: AnyObject) {
+    @IBAction func PGRNClicked(_ sender: AnyObject) {
         openURL(urlStr: "https://pgrn.org")
     }
-    @IBAction func G2C2Clicked(sender: AnyObject) {
+    @IBAction func G2C2Clicked(_ sender: AnyObject) {
         openURL(urlStr: "https://genomicseducation.net")
     }
-    @IBAction func IgniteClicked(sender: AnyObject) {
+    @IBAction func IgniteClicked(_ sender: AnyObject) {
         openURL(urlStr: "https://ignite-genomics.org")
+    }
+    @IBAction func GenelexClicked(_ sender: AnyObject) {
+        openURL(urlStr: "https://www.genelex.com")
+    }
+    @IBAction func GenesightClicked(_ sender: AnyObject) {
+        openURL(urlStr: "https://genesight.com")
+    }
+    @IBAction func OneomeClicked(_ sender: AnyObject) {
+        openURL(urlStr: "https://oneome.com")
+    }
+    @IBAction func YouScriptClicked(_ sender: AnyObject) {
+        openURL(urlStr: "https://youscript.com")
     }
     func openURL(urlStr:String!) {
         if let url = NSURL(string:urlStr) {
@@ -44,108 +56,95 @@ class LearnMoreViewController: UIViewController {
         
         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let buttonPressed = sender as? UIBarButtonItem {
-            switch restorationIdentifier {
-            case "intro1"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toIntro2", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "backToGetStarted", sender: backButton)
-                }
-                break
-            case "intro2"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toIntro3", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "backToIntro1", sender: backButton)
-                }
-                break
-            case "intro3"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toIntro4", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "backToIntro2", sender: backButton)
-                }
-                break
-            case "intro4"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toLearn1", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "backToIntro3", sender: backButton)
-                }
-                break
-            case "learn1"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toGeneticTest", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "backToIntro4", sender: backButton)
-                }
-                break
-            case "learn2"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toWhyIndividuals", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "toBasicGenetics", sender: backButton)
-                }
-                break
-            case "learn3"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toWhyIndividCont", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "toGeneticTests", sender: backButton)
-                }
-                break
-            case "learn4"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toTypes", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "toWhyIndividuals", sender: backButton)
-                }
-                break
-            case "learn5"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toParentDrug", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "toCont", sender: backButton)
-                }
-                break
-            case "learn6"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toEvid", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "toTypes", sender: backButton)
-                }
-                break
-            case "learn7"?:
-                if buttonPressed == nextButton {
-                    performSegue(withIdentifier: "toEducational", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "toParentDrug", sender: backButton)
-                }
-                break
-            case "learn8"?:
-                if buttonPressed == backButton {
-                    performSegue(withIdentifier: "toEvidence", sender: nextButton)
-                }
-                else {
-                    performSegue(withIdentifier: "backToGetStated", sender: backButton)
-                }
-                break
-            default:
-                break
-            }
+    
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        switch restorationIdentifier {
+        case "intro1"?:
+            self.performSegue(withIdentifier: "toIntro2", sender: nextButton)
+            break
+        case "intro2"?:
+            self.performSegue(withIdentifier: "toIntro3", sender: nextButton)
+            break
+        case "intro3"?:
+            self.performSegue(withIdentifier: "toIntro4", sender: nextButton)
+            break
+        case "intro4"?:
+            self.performSegue(withIdentifier: "toLearn1", sender: nextButton)
+            break
+        case "learn1"?:
+            self.performSegue(withIdentifier: "toLearn2", sender: nextButton)
+            break
+        case "learn2"?:
+            self.performSegue(withIdentifier: "toLearn3", sender: nextButton)
+            break
+        case "learn3"?:
+            self.performSegue(withIdentifier: "toLearn4", sender: nextButton)
+            break
+        case "learn4"?:
+            self.performSegue(withIdentifier: "toLearn5", sender: nextButton)
+            break
+        case "learn5"?:
+            self.performSegue(withIdentifier: "toLearn6", sender: nextButton)
+            break
+        case "learn6"?:
+            self.performSegue(withIdentifier: "toLearn7", sender: nextButton)
+            break
+        case "learn7"?:
+            self.performSegue(withIdentifier: "toLearn8", sender: nextButton)
+            break
+        case "learn8"?:
+            self.performSegue(withIdentifier: "toLearn9", sender: nextButton)
+            break
+        case "learn9"?:
+            self.performSegue(withIdentifier: "backToGetStarted", sender: nextButton)
+            break
+        default:
+            break
+        }
+    }
+    @IBAction func backButtonPressed(_ sender: Any) {
+        switch restorationIdentifier {
+        case "intro1"?:
+            self.performSegue(withIdentifier: "backToGetStarted", sender: backButton)
+            break
+        case "intro2"?:
+            self.performSegue(withIdentifier: "backToIntro1", sender: backButton)
+            break
+        case "intro3"?:
+            self.performSegue(withIdentifier: "backToIntro2", sender: backButton)
+            break
+        case "intro4"?:
+            self.performSegue(withIdentifier: "backToIntro3", sender: backButton)
+            break
+        case "learn1"?:
+            self.performSegue(withIdentifier: "backToIntro4", sender: backButton)
+            break
+        case "learn2"?:
+            self.performSegue(withIdentifier: "backToLearn1", sender: backButton)
+            break
+        case "learn3"?:
+            self.performSegue(withIdentifier: "backToLearn2", sender: backButton)
+            break
+        case "learn4"?:
+            self.performSegue(withIdentifier: "backToLearn3", sender: backButton)
+            break
+        case "learn5"?:
+            self.performSegue(withIdentifier: "backToLearn4", sender: backButton)
+            break
+        case "learn6"?:
+            self.performSegue(withIdentifier: "backToLearn5", sender: backButton)
+            break
+        case "learn7"?:
+            self.performSegue(withIdentifier: "backToLearn6", sender: backButton)
+            break
+        case "learn8"?:
+            self.performSegue(withIdentifier: "backToLearn7", sender: backButton)
+            break
+        case "learn9"?:
+            self.performSegue(withIdentifier: "backToLearn8", sender: backButton)
+            break
+        default:
+            break
         }
     }
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
@@ -229,6 +228,13 @@ class LearnMoreViewController: UIViewController {
                     break
                 }
             case "learn8"?:
+                switch swipeGesture.direction {
+                case UISwipeGestureRecognizer.Direction.up:
+                    performSegue(withIdentifier: "backToGetStarted", sender: UISwipeGestureRecognizer.Direction.up)
+                default:
+                    break
+                }
+            case "learn9"?:
                 switch swipeGesture.direction {
                 case UISwipeGestureRecognizer.Direction.up:
                     performSegue(withIdentifier: "backToGetStarted", sender: UISwipeGestureRecognizer.Direction.up)

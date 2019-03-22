@@ -15,11 +15,6 @@ import Darwin
 
 class DosageCalcViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate{
     
-    var errormsg = ""
-    var errormsg2 = ""
-    var errormsg3 = ""
-    var errormsg4 = ""
-    
     var runningnum = ""
     var runningWeight = ""
     var runningMedAmt = ""
@@ -120,128 +115,73 @@ class DosageCalcViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     
     @IBAction func btnPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Missing Field", message: "Please make sure all fields are chosen", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        let invalidSelection = UIAlertController(title: "Invalid Selection", message: "Please select a valid allele combination", preferredStyle: UIAlertController.Style.alert)
-        invalidSelection.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let noValueEnteredForDoseOrWeight = UIAlertController(title: "No Value Entered", message: "Please enter numeric values for both the Weight and Dosage Amount", preferredStyle: UIAlertController.Style.alert)
+        noValueEnteredForDoseOrWeight.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let noValueEnteredForMedAmtOrPerVol = UIAlertController(title: "No Value Entered", message: "Please enter numeric values for both the Med Amount and the Per Volume Amount if choosing to fill out the optional liquid formulation fields", preferredStyle: UIAlertController.Style.alert)
+        noValueEnteredForMedAmtOrPerVol.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
-        // UI picker for which dosage format is picked
-        switch DosageWeightTxt.text{
-        case "mg/kg"?:
-            if PatDose.isEmpty{
-                errormsg = "error"
-                print("error")
-            } else {
-                errormsg = ""
+        if(PatDose.isEmpty || PatWeight.isEmpty) {
+            self.present(noValueEnteredForDoseOrWeight, animated: true)
+        } else if(!PatDose.isEmpty && !PatWeight.isEmpty) {
+            // UI picker for which dosage format is picked
+            switch DosageWeightTxt.text{
+            case "mg/kg"?:
+                runningnum = "\(Double(PatDose)! * 1)"
+            case "mcg/kg"?:
+                runningnum = "\(Double(PatDose)! * 0.001)"
+            case "gm/kg"?:
+                runningnum = "\(Double(PatDose)! * 1000)"
+            case .none:
+                runningnum = ""
+            default:
                 runningnum = "\(Double(PatDose)! * 1)"
             }
-        case "mcg/kg"?:
-            if PatDose.isEmpty{
-                errormsg = "error"
-                print("error")
-            } else {
-                errormsg = ""
-                runningnum = "\(Double(PatDose)! * 0.001)"
-            }
-        case "gm/kg"?:
-            if PatDose.isEmpty{
-                errormsg = "error"
-                print("error")
-            } else {
-                errormsg = ""
-                runningnum = "\(Double(PatDose)! * 1000)"
-            }
-        case .none:
-            runningnum = ""
-        default:
-            runningnum = "\(Double(PatDose)! * 1)"
-        }
-        
-        // UI picker for which weight format is picked
-        switch WeightTypeTxt.text {
-        case "kg"?:
-            if PatWeight.isEmpty{
-                errormsg2 = "error"
-                print("error")
-            } else {
-                errormsg = ""
+            
+            // UI picker for which weight format is picked
+            switch WeightTypeTxt.text {
+            case "kg"?:
+                runningWeight = "\(Double(PatWeight)! * 1)"
+            case "lbs"?:
+                runningWeight = "\(Double(PatWeight)! * 0.45359237)"
+            case .none:
+                runningWeight = ""
+            default:
                 runningWeight = "\(Double(PatWeight)! * 1)"
             }
-        case "lbs"?:
-            if PatWeight.isEmpty{
-                errormsg2 = "error"
-                print("error")
-            } else {
-                errormsg2 = ""
-                runningWeight = "\(Double(PatWeight)! * 0.45359237)"
-            }
-        case .none:
-            runningWeight = ""
-        // or nil?
-        default:
-            runningWeight = "\(Double(PatWeight)! * 1)"
         }
         
-        // UI picker value for which med amount format is picked
-        switch LiqMedWeightTxt.text {
-        case "mg"?:
-            
-            if PatMedAmt.isEmpty {
-                errormsg3 = "error"
-                print("error")
-            }else {
-                errormsg3 = ""
+        if((PatMedAmt.isEmpty && !PatPerVol.isEmpty) || (!PatMedAmt.isEmpty && PatPerVol.isEmpty)) {
+            self.present(noValueEnteredForMedAmtOrPerVol, animated: true)
+        } else if(!PatMedAmt.isEmpty && !PatPerVol.isEmpty) {
+            // UI picker value for which med amount format is picked
+            switch LiqMedWeightTxt.text {
+            case "mg"?:
                 runningMedAmt = "\(Double(PatMedAmt)! * 1000000)"
-            }
-        case "mcg"?:
-            if PatMedAmt.isEmpty {
-                errormsg3 = "error"
-                print("error")
-            }else {
-                errormsg3 = ""
+            case "mcg"?:
                 runningMedAmt = "\(Double(PatMedAmt)! * 1000)"
-            }
-        case "gm"?:
-            if PatMedAmt.isEmpty {
-                errormsg3 = "error"
-                print("error")
-            }else {
-                errormsg3 = ""
+            case "gm"?:
                 runningMedAmt = "\(Double(PatMedAmt)! * 1000000000)"
+            case .none:
+                runningMedAmt = ""
+            default:
+                runningMedAmt = "\(Double(PatMedAmt)! * 1)"
             }
-        case .none:
-            runningMedAmt = ""
-        default:
-            runningMedAmt = "\(Double(PatMedAmt)! * 1)"
-        }
-        
-        // UI picker value for the type of per volume picked
-        
-        switch LiqVolTypeTxt.text {
-        case "mL"?:
-            if PatPerVol.isEmpty{
-                errormsg4 = "error"
-                print("error")
-            } else {
-                errormsg4 = ""
-                runningPerVol = "\(Double(PatPerVol)! * 1000)"
-            }
-        case "L"?:
-            if PatPerVol.isEmpty{
-                errormsg4 = "error"
-                print("error")
-            } else {
-                errormsg4 = ""
-                runningPerVol = "\(Double(PatPerVol)! * 1000000)"
-            }
-        case .none:
-            runningPerVol = ""
-        default:
-            runningPerVol = "\(Double(PatPerVol)! * 1)"
-        }
-        
-        if errormsg.isEmpty && errormsg2.isEmpty{
             
+            // UI picker value for the type of per volume picked
+            
+            switch LiqVolTypeTxt.text {
+            case "mL"?:
+                runningPerVol = "\(Double(PatPerVol)! * 1000)"
+            case "L"?:
+                runningPerVol = "\(Double(PatPerVol)! * 1000000)"
+            case .none:
+                runningPerVol = ""
+            default:
+                runningPerVol = "\(Double(PatPerVol)! * 1)"
+            }
+        }
+        
+        if(!PatDose.isEmpty && !PatWeight.isEmpty) {
             output1 = Double(runningnum)! * Double(runningWeight)!
             
             switch DoseFreqTxt.text {
@@ -307,11 +247,9 @@ class DosageCalcViewController: UIViewController, UIPickerViewDataSource, UIPick
             default:
                 DosageOutputLbl.text = String(format: "%.2f", FinalDose)
             }
-            
         }
         
-        if errormsg3.isEmpty && errormsg4.isEmpty{
-            
+        if(!PatMedAmt.isEmpty && !PatPerVol.isEmpty) {
             output2 = ((output1 * Double(runningPerVol)!) / Double(runningMedAmt)!)
             
             switch LiqDoseFreqTxt.text {
@@ -363,9 +301,7 @@ class DosageCalcViewController: UIViewController, UIPickerViewDataSource, UIPick
             default:
                 LiqDosageOutputLbl.text = String(format: "%.2f", FinalLiqDose)
             }
-            
         }
-        
     }
     let DosageWeight = ["mg/kg","mcg/kg","gm/kg"]
     
@@ -477,14 +413,14 @@ class DosageCalcViewController: UIViewController, UIPickerViewDataSource, UIPick
             switch alleles{
             case "*1 *1", "*1 *1S", "*1S *1S":
                 Metabolizer.text = "Normal Metabolizer"
-                RecommendedText.text = "Start with normal starting dose:\n" +
+                self.RecommendedText.text = "Start with normal starting dose:\n" +
                     "* Adult: 2.5 mg/kg daily   (include drug calculator option with each dose)\n" +
                     "* Pediatric: 1.25-2.5 mg/kg (50-70 mg/m2) daily\n" +
                 "Allow 2 weeks to reach steady state after each dose adjustment."
                 break
             case "*1 *2", "*1 *3A", "*1 *3B", "*1 *3C", "*1 *4", "*1S *2", "*1S *3A", "*1S *3B", "*1S *3C", "*1S *4":
                 Metabolizer.text = "Intermediate Metabolizer"
-                RecommendedText.text = "Start with 30-70% reduction from normal starting dose:\n" +
+                self.RecommendedText.text = "Start with 30-70% reduction from normal starting dose:\n" +
                     "* Adult: 0.75-1.75 mg/kg daily  (include drug calculator option with each dose)\n" +
                     "Pediatric: 0.375-1.75 mg/kg (15-49 mg/m2) daily\n" +
                     "Allow 2-4 weeks to reach steady state after each dose adjustment.\n" +

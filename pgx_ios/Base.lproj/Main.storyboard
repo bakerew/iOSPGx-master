@@ -23,8 +23,18 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="uAC-DN-uaN">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="XIl-gC-pnT"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="hla-fe-XWj"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="XIl-gC-pnT">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="Xzh-iG-L48" id="8gA-3o-hhT"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="Vwc-rt-55W"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="hla-fe-XWj">
+                                            <connections>
+                                                <action selector="nextButtonPressed:" destination="Xzh-iG-L48" id="QGZ-gD-9Y8"/>
+                                                <segue destination="TIS-N2-ZK9" kind="show" identifier="toIntro2" id="fLK-Xk-Kpo"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -62,8 +72,6 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="XIl-gC-pnT" id="Muh-sE-qtT"/>
-                        <segue destination="TIS-N2-ZK9" kind="show" identifier="toIntro2" id="Gjf-5J-3jz"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="xR5-uN-PNX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMb-X9-yNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -93,10 +101,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="A1N-Uz-3Xh">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="6jP-u7-imh"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="6jP-u7-imh">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="TIS-N2-ZK9" id="YO1-mF-EvN"/>
+                                                <segue destination="Xzh-iG-L48" kind="show" identifier="backToIntro1" id="cnK-n7-Ddn"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="bzq-Lz-rT9">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="QbK-FH-3LT"/>
+                                                <action selector="nextButtonPressed:" destination="TIS-N2-ZK9" id="e3O-cX-B1z"/>
+                                                <segue destination="ygo-iZ-MnQ" kind="show" identifier="toIntro3" id="6bZ-f5-c1t"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -127,13 +141,14 @@
                     <connections>
                         <outlet property="backButton" destination="6jP-u7-imh" id="tY8-IR-Rma"/>
                         <outlet property="nextButton" destination="bzq-Lz-rT9" id="f4j-ht-8nc"/>
-                        <segue destination="ygo-iZ-MnQ" kind="show" identifier="toIntro3" id="hMD-Cs-wJc"/>
-                        <segue destination="Xzh-iG-L48" kind="show" identifier="backToIntro1" id="CAX-0d-bqN"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="twE-42-dDt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3D-6t-lxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="0uH-jw-zVc"/>
+                <swipeGestureRecognizer direction="right" id="0uH-jw-zVc">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="Zin-LK-3wQ"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1426.4000000000001" y="954.87256371814101"/>
         </scene>
@@ -164,10 +179,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="gFN-Qb-aZ2">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="wrL-2u-6XI"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="wrL-2u-6XI">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="ygo-iZ-MnQ" id="tk1-fG-gRJ"/>
+                                                <segue destination="TIS-N2-ZK9" kind="show" identifier="backToIntro2" id="KSD-WT-SyG"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="me4-0I-zFK">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="QP9-ZT-YgQ"/>
+                                                <action selector="nextButtonPressed:" destination="ygo-iZ-MnQ" id="7xz-OB-tjP"/>
+                                                <segue destination="cEC-9v-Rge" kind="show" identifier="toIntro4" id="pAA-02-4Fp"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -204,8 +225,6 @@
                     <connections>
                         <outlet property="backButton" destination="wrL-2u-6XI" id="Nho-Z3-qfD"/>
                         <outlet property="nextButton" destination="me4-0I-zFK" id="xpj-oX-w49"/>
-                        <segue destination="cEC-9v-Rge" kind="show" identifier="toIntro4" id="LtJ-L1-anN"/>
-                        <segue destination="TIS-N2-ZK9" kind="show" identifier="backToIntro2" id="MTZ-V1-mFV"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="G3q-CU-tSt"/>
                     </connections>
                 </viewController>
@@ -235,10 +254,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="0cZ-9Z-LNy">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="YpW-lk-P14"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="YpW-lk-P14">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="cEC-9v-Rge" id="7Mm-UC-xQR"/>
+                                                <segue destination="ygo-iZ-MnQ" kind="show" identifier="backToIntro3" id="RRO-R7-2Zf"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="p9q-5Q-4dz">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="yni-XL-SB7"/>
+                                                <action selector="nextButtonPressed:" destination="cEC-9v-Rge" id="j3Z-6N-emI"/>
+                                                <segue destination="aQh-YR-l86" kind="show" identifier="toLearn1" id="NrN-zz-7Lu"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -269,8 +294,6 @@
                     <connections>
                         <outlet property="backButton" destination="YpW-lk-P14" id="uc1-5c-QNf"/>
                         <outlet property="nextButton" destination="p9q-5Q-4dz" id="TJy-fm-Kjp"/>
-                        <segue destination="aQh-YR-l86" kind="show" identifier="toLearn1" id="wuW-FJ-OVg"/>
-                        <segue destination="ygo-iZ-MnQ" kind="show" identifier="backToIntro3" id="egF-R7-zOa"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="vD6-JG-VLv"/>
                     </connections>
                 </viewController>
@@ -294,7 +317,7 @@
                                 <state key="normal" title="  Get Started  "/>
                                 <connections>
                                     <action selector="getStartedButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SPa-yc-WPs"/>
-                                    <segue destination="8zB-41-42w" kind="show" id="1WO-5n-7RK"/>
+                                    <segue destination="8zB-41-42w" kind="show" identifier="toDrugs" id="1WO-5n-7RK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNX-6c-SXz">
@@ -305,7 +328,7 @@
                                 <state key="normal" title="  Want To Know More?  "/>
                                 <connections>
                                     <action selector="wantToKnowMorePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXN-uJ-dMZ"/>
-                                    <segue destination="Xzh-iG-L48" kind="show" id="qSq-eX-QY8"/>
+                                    <segue destination="Xzh-iG-L48" kind="show" identifier="toIntro1" id="qSq-eX-QY8"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PGxiconwithMedBottle" translatesAutoresizingMaskIntoConstraints="NO" id="h9v-OK-0qM">
@@ -604,7 +627,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CTo-8H-A7F">
-                                <rect key="frame" x="16" y="64" width="343" height="311.5"/>
+                                <rect key="frame" x="16" y="64" width="343" height="56.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guN-TL-ljI" userLabel="Metabolizer">
                                         <rect key="frame" x="152" y="0.0" width="39.5" height="24"/>
@@ -619,19 +642,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YE-T6-yo6">
-                                        <rect key="frame" x="0.0" y="64.5" width="343" height="247"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="RecommendedText" label="RecommendedText"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="247" id="iLS-tp-GLq"/>
-                                        </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enm-pK-sWe">
+                                <rect key="frame" x="16" y="128" width="343" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -662,16 +681,15 @@
                         <outlet property="LiqMedWeightTxt" destination="Zhj-nw-mvF" id="bXM-MX-TpT"/>
                         <outlet property="LiqVolTypeTxt" destination="mK4-yT-VmZ" id="qBo-LD-vcV"/>
                         <outlet property="Metabolizer" destination="guN-TL-ljI" id="Xpf-Hp-Q8j"/>
-                        <outlet property="RecommendedText" destination="1YE-T6-yo6" id="iqe-BV-0V6"/>
+                        <outlet property="RecommendedText" destination="enm-pK-sWe" id="cMq-mY-C2Y"/>
                         <outlet property="WeightTypeTxt" destination="dCb-k2-j25" id="gms-hl-Tax"/>
-                        <outlet property="view" destination="1YE-T6-yo6" id="VB2-fg-0xQ"/>
                         <outlet property="view1" destination="9aG-d8-fpR" id="Idh-eN-3DP"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="DosageCalc" id="k81-Nu-eOJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOx-ie-6nr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3401" y="112"/>
+            <point key="canvasLocation" x="3790" y="107"/>
         </scene>
         <!--BasicGenetics-->
         <scene sceneID="jIW-4o-0cB">
@@ -688,10 +706,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="POi-0A-EuZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ibz-YT-OaA"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ibz-YT-OaA">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="aQh-YR-l86" id="w7l-IZ-0Zg"/>
+                                                <segue destination="cEC-9v-Rge" kind="show" identifier="backTointro4" id="s4v-8O-mJ8"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="zTi-CS-ekH">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="xx2-4Y-Mra"/>
+                                                <action selector="nextButtonPressed:" destination="aQh-YR-l86" id="A1T-WH-njB"/>
+                                                <segue destination="0wh-CV-2Jb" kind="show" identifier="toLearn2" id="xEh-Ov-38g"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -775,9 +799,7 @@ Phenotype: The observable expression of one's genes.</string>
                     <connections>
                         <outlet property="backButton" destination="Ibz-YT-OaA" id="9X6-C0-vuj"/>
                         <outlet property="nextButton" destination="zTi-CS-ekH" id="0wo-Pi-Sjw"/>
-                        <segue destination="0wh-CV-2Jb" kind="show" identifier="toGeneticTest" id="fZ2-JQ-ity"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="r8o-Qn-zxe"/>
-                        <segue destination="cEC-9v-Rge" kind="show" identifier="backToIntro4" id="Wc1-j8-iQg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkg-9U-Vqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -797,10 +819,16 @@ Phenotype: The observable expression of one's genes.</string>
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="oX4-7W-MtM">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="bbM-yS-Tbz"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="bbM-yS-Tbz">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="0wh-CV-2Jb" id="vKC-Un-xKa"/>
+                                                <segue destination="aQh-YR-l86" kind="show" identifier="backToLearn1" id="mko-Hy-LLu"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="5ad-AJ-0b1">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="Wgv-5S-thh"/>
+                                                <action selector="nextButtonPressed:" destination="0wh-CV-2Jb" id="3aE-9d-Ocd"/>
+                                                <segue destination="n9D-kW-I6w" kind="show" identifier="toLearn3" id="zqK-1p-c9A"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -866,8 +894,6 @@ Phenotype: The observable expression of one's genes.</string>
                     <connections>
                         <outlet property="backButton" destination="bbM-yS-Tbz" id="oVv-cr-hss"/>
                         <outlet property="nextButton" destination="5ad-AJ-0b1" id="0ih-LX-IF7"/>
-                        <segue destination="n9D-kW-I6w" kind="show" identifier="toWhyIndividuals" id="cpP-7L-2dq"/>
-                        <segue destination="aQh-YR-l86" kind="show" identifier="toBasicGenetics" id="RX0-H6-0f5"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="uXC-ka-7KK"/>
                     </connections>
                 </viewController>
@@ -920,10 +946,16 @@ extra copies of a gene.</string>
                                 </constraints>
                                 <items>
                                     <navigationItem id="80k-e7-tyg">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="JMG-qr-4Cb"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="JMG-qr-4Cb">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="n9D-kW-I6w" id="Hwf-QF-TgT"/>
+                                                <segue destination="0wh-CV-2Jb" kind="show" identifier="backToLearn2" id="sUY-y4-Ihe"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="1Q1-nq-6lG">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="Rfs-Pd-IHb"/>
+                                                <action selector="nextButtonPressed:" destination="n9D-kW-I6w" id="uih-hW-RF0"/>
+                                                <segue destination="Le4-Cp-4Rm" kind="show" identifier="toLearn4" id="IJI-x2-WLB"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -961,8 +993,6 @@ extra copies of a gene.</string>
                         <outlet property="backButton" destination="JMG-qr-4Cb" id="jYF-eE-Z7z"/>
                         <outlet property="nextButton" destination="1Q1-nq-6lG" id="4y8-i2-JPQ"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="DZF-ot-p8j"/>
-                        <segue destination="0wh-CV-2Jb" kind="show" identifier="toGeneticTests" id="Cap-dB-BOz"/>
-                        <segue destination="Le4-Cp-4Rm" kind="show" identifier="toWhyIndividCont" id="iC0-Zc-U2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zK-Kg-wQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1002,10 +1032,16 @@ extra copies of a gene.</string>
                                 </constraints>
                                 <items>
                                     <navigationItem id="oWq-P9-Vyn">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="T5g-jj-ye2"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="T5g-jj-ye2">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="Le4-Cp-4Rm" id="jM0-hh-TQM"/>
+                                                <segue destination="n9D-kW-I6w" kind="show" identifier="backToLearn3" id="ZPO-PW-fCe"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="gFg-ch-1Jl">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="Sv5-JJ-HYL"/>
+                                                <action selector="nextButtonPressed:" destination="Le4-Cp-4Rm" id="rOV-tL-Jep"/>
+                                                <segue destination="Mqf-sP-s8e" kind="show" identifier="toLearn5" id="yFM-Ba-XEU"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1049,8 +1085,6 @@ extra copies of a gene.</string>
                         <outlet property="backButton" destination="T5g-jj-ye2" id="sT4-Bp-dq3"/>
                         <outlet property="nextButton" destination="gFg-ch-1Jl" id="Cer-g7-7uX"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="814-SL-8cm"/>
-                        <segue destination="n9D-kW-I6w" kind="show" identifier="toWhyIndividuals" id="fMl-9f-nDl"/>
-                        <segue destination="Mqf-sP-s8e" kind="show" identifier="toTypes" id="kKZ-HR-0VM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n15-nz-1sV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1073,7 +1107,7 @@ extra copies of a gene.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rer-bh-hDF">
-                                <rect key="frame" x="16" y="119" width="343" height="286"/>
+                                <rect key="frame" x="16" y="75" width="343" height="286"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="286" id="Vj1-AX-dhD"/>
                                 </constraints>
@@ -1093,17 +1127,23 @@ extra copies of a gene.</string>
                                 </constraints>
                                 <items>
                                     <navigationItem id="inb-ep-eTl">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="AlC-DE-iac"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="AlC-DE-iac">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="Mqf-sP-s8e" id="uZ4-Gi-kaz"/>
+                                                <segue destination="Le4-Cp-4Rm" kind="show" identifier="backToLearn4" id="rAN-rz-Wf2"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="yjr-sF-0Of">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="Waz-hR-GLd"/>
+                                                <action selector="nextButtonPressed:" destination="Mqf-sP-s8e" id="clR-fG-n9R"/>
+                                                <segue destination="hXz-gG-FnK" kind="show" identifier="toLearn6" id="lnO-Cw-ETG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen21image" translatesAutoresizingMaskIntoConstraints="NO" id="PVW-Gh-7FV">
-                                <rect key="frame" x="35" y="432" width="305" height="184"/>
+                                <rect key="frame" x="35" y="388" width="305" height="184"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="184" id="snW-Mm-qCu"/>
                                 </constraints>
@@ -1134,8 +1174,6 @@ extra copies of a gene.</string>
                         <outlet property="backButton" destination="AlC-DE-iac" id="cmc-2I-pCO"/>
                         <outlet property="nextButton" destination="yjr-sF-0Of" id="wJd-fk-8tB"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="HFf-fF-fix"/>
-                        <segue destination="Le4-Cp-4Rm" kind="show" identifier="toCont" id="0ah-gw-yNl"/>
-                        <segue destination="hXz-gG-FnK" kind="show" identifier="toParentDrug" id="Coc-mr-5zL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRw-OJ-MbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1158,7 +1196,7 @@ extra copies of a gene.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m36-qd-uzO">
-                                <rect key="frame" x="16" y="263" width="343" height="216"/>
+                                <rect key="frame" x="16" y="263" width="343" height="172"/>
                                 <string key="text">Parent/Active Drug: Formulated with the active form of the drug
 
 Pro Drug: Formulated in its inactive state and must be broken down by enzymes in the body to produce active metabolites.</string>
@@ -1173,17 +1211,27 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 </constraints>
                                 <items>
                                     <navigationItem id="4V4-A8-lAz">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="xD9-LV-J5n"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="xD9-LV-J5n">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="hXz-gG-FnK" id="gKL-h5-viJ"/>
+                                                <segue destination="Mqf-sP-s8e" kind="show" identifier="backToLearn5" id="je7-BO-cZa"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="D07-pN-27D">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="ioU-4O-n49"/>
+                                                <action selector="nextButtonPressed:" destination="hXz-gG-FnK" id="Xan-no-aAU"/>
+                                                <segue destination="DCT-gZ-jj4" kind="show" id="fhZ-XK-6Ms">
+                                                    <string key="identifier" base64-UTF8="YES">
+dG9MA2Vhcm43A
+</string>
+                                                </segue>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen22image2" translatesAutoresizingMaskIntoConstraints="NO" id="fs4-as-Bur">
-                                <rect key="frame" x="41" y="494" width="293" height="139"/>
+                                <rect key="frame" x="41" y="450" width="293" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="139" id="L5D-YO-1xU"/>
                                 </constraints>
@@ -1223,8 +1271,6 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                         <outlet property="backButton" destination="xD9-LV-J5n" id="JpI-WH-pb9"/>
                         <outlet property="nextButton" destination="D07-pN-27D" id="VmC-pR-8Aa"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="OZb-EY-Zbq"/>
-                        <segue destination="Mqf-sP-s8e" kind="show" identifier="toTypes" id="1vS-Hi-dqf"/>
-                        <segue destination="R8t-VI-Mse" kind="show" identifier="toEvid" id="myq-4A-c7g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Tb-eT-igs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1235,7 +1281,7 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
         <!--Ordering a Pharmaco Test-->
         <scene sceneID="0ZS-dl-1Oc">
             <objects>
-                <viewController title="Ordering a Pharmaco Test" id="DCT-gZ-jj4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="learn7" title="Ordering a Pharmaco Test" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DCT-gZ-jj4" customClass="LearnMoreViewController" customModule="pgx_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cIN-Z0-WO3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1247,10 +1293,15 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 </constraints>
                                 <items>
                                     <navigationItem id="eC0-DP-ivf">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="rKQ-4Y-q1n"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="rKQ-4Y-q1n">
+                                            <connections>
+                                                <segue destination="hXz-gG-FnK" kind="show" identifier="backToLearn6" id="kc0-eM-QNp"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="2M3-58-NJF">
                                             <connections>
                                                 <action selector="NextBtnPress:" destination="GIa-a6-p07" id="ZUO-fx-fgX"/>
+                                                <segue destination="R8t-VI-Mse" kind="show" identifier="toLearn8" id="81o-ej-aGL"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1272,56 +1323,77 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genelex" translatesAutoresizingMaskIntoConstraints="NO" id="0kK-Ni-W1T">
-                                <rect key="frame" x="27" y="384" width="144" height="72"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b71-5q-NuB">
+                                <rect key="frame" x="16" y="490" width="175" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="144" id="BJl-po-65T"/>
-                                    <constraint firstAttribute="height" constant="72" id="p1p-TJ-bu5"/>
+                                    <constraint firstAttribute="height" constant="48" id="oNs-f9-tRQ"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genesight" translatesAutoresizingMaskIntoConstraints="NO" id="qjX-h8-MYO">
-                                <rect key="frame" x="194" y="425" width="146" height="62"/>
+                                <state key="normal" title="Button" image="oneome"/>
+                                <connections>
+                                    <action selector="OneomeClicked:" destination="DCT-gZ-jj4" eventType="touchUpInside" id="vp3-To-CqY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-tt-vCX">
+                                <rect key="frame" x="16" y="365" width="175" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="yWy-PJ-dqB"/>
+                                    <constraint firstAttribute="height" constant="64" id="ZVF-OU-iH9"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oneome" translatesAutoresizingMaskIntoConstraints="NO" id="NE2-WF-BMd">
-                                <rect key="frame" x="27" y="497" width="144" height="50"/>
+                                <state key="normal" title="Button" image="genelex"/>
+                                <connections>
+                                    <action selector="GenelexClicked:" destination="DCT-gZ-jj4" eventType="touchUpInside" id="7HQ-8u-2Ox"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORB-rN-vHs">
+                                <rect key="frame" x="204" y="435" width="161" height="52"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="5Az-PI-bFu"/>
+                                    <constraint firstAttribute="height" constant="52" id="KC1-Am-s7T"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youscript" translatesAutoresizingMaskIntoConstraints="NO" id="T2g-cg-92G">
-                                <rect key="frame" x="194" y="556" width="146" height="66"/>
+                                <state key="normal" title="Button" image="genesight"/>
+                                <connections>
+                                    <action selector="GenesightClicked:" destination="DCT-gZ-jj4" eventType="touchUpInside" id="aDl-eA-Txs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7De-Uv-7B9">
+                                <rect key="frame" x="204" y="556" width="161" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="66" id="Xfd-VT-KBV"/>
+                                    <constraint firstAttribute="height" constant="53" id="Qtb-fg-EGw"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button" image="youscript"/>
+                                <connections>
+                                    <action selector="YouScriptClicked:" destination="DCT-gZ-jj4" eventType="touchUpInside" id="d89-wN-W9G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xPj-WV-ZRV" firstAttribute="centerX" secondItem="Eza-ab-i2y" secondAttribute="centerX" id="4MB-KW-wCn"/>
+                            <constraint firstItem="7De-Uv-7B9" firstAttribute="trailing" secondItem="ORB-rN-vHs" secondAttribute="trailing" id="68b-7Y-kTm"/>
+                            <constraint firstItem="oAR-J2-cPY" firstAttribute="bottom" secondItem="7De-Uv-7B9" secondAttribute="bottom" constant="14" id="690-ld-vaR"/>
+                            <constraint firstItem="b71-5q-NuB" firstAttribute="top" secondItem="orZ-tt-vCX" secondAttribute="bottom" constant="61" id="CR8-d3-8qA"/>
+                            <constraint firstItem="b71-5q-NuB" firstAttribute="leading" secondItem="orZ-tt-vCX" secondAttribute="leading" id="EpE-Td-cig"/>
+                            <constraint firstItem="7De-Uv-7B9" firstAttribute="leading" secondItem="ORB-rN-vHs" secondAttribute="leading" id="F42-0g-DIc"/>
                             <constraint firstItem="kbf-g3-URI" firstAttribute="top" secondItem="xPj-WV-ZRV" secondAttribute="bottom" constant="14" id="FPm-fX-pfU"/>
-                            <constraint firstItem="qjX-h8-MYO" firstAttribute="leading" secondItem="0kK-Ni-W1T" secondAttribute="trailing" constant="23" id="G1a-Jp-rOd"/>
-                            <constraint firstItem="T2g-cg-92G" firstAttribute="top" secondItem="qjX-h8-MYO" secondAttribute="bottom" constant="69" id="Kjd-To-889"/>
+                            <constraint firstItem="b71-5q-NuB" firstAttribute="trailing" secondItem="orZ-tt-vCX" secondAttribute="trailing" id="G4V-MZ-6dV"/>
+                            <constraint firstItem="7De-Uv-7B9" firstAttribute="top" secondItem="ORB-rN-vHs" secondAttribute="bottom" constant="69" id="OUF-bJ-wuB"/>
                             <constraint firstItem="Eza-ab-i2y" firstAttribute="leading" secondItem="cIN-Z0-WO3" secondAttribute="leadingMargin" id="REn-Mm-cOG"/>
-                            <constraint firstItem="NE2-WF-BMd" firstAttribute="leading" secondItem="0kK-Ni-W1T" secondAttribute="leading" id="S9V-Jt-0zU"/>
+                            <constraint firstItem="oAR-J2-cPY" firstAttribute="trailing" secondItem="b71-5q-NuB" secondAttribute="trailing" constant="184" id="RFN-0O-LOQ"/>
                             <constraint firstItem="xPj-WV-ZRV" firstAttribute="centerX" secondItem="kbf-g3-URI" secondAttribute="centerX" id="TKE-vx-HGq"/>
+                            <constraint firstItem="oAR-J2-cPY" firstAttribute="trailing" secondItem="7De-Uv-7B9" secondAttribute="trailing" constant="10" id="XPw-Hu-zdH"/>
                             <constraint firstAttribute="trailing" secondItem="xPj-WV-ZRV" secondAttribute="trailing" id="XqC-Nb-QdC"/>
-                            <constraint firstItem="NE2-WF-BMd" firstAttribute="top" secondItem="0kK-Ni-W1T" secondAttribute="bottom" constant="41" id="a86-zD-Szs"/>
-                            <constraint firstItem="NE2-WF-BMd" firstAttribute="trailing" secondItem="0kK-Ni-W1T" secondAttribute="trailing" id="abq-eF-JIO"/>
-                            <constraint firstItem="T2g-cg-92G" firstAttribute="leading" secondItem="qjX-h8-MYO" secondAttribute="leading" id="agC-t9-tV1"/>
-                            <constraint firstItem="0kK-Ni-W1T" firstAttribute="leading" secondItem="oAR-J2-cPY" secondAttribute="leading" constant="27" id="dVv-RX-xAC"/>
+                            <constraint firstItem="b71-5q-NuB" firstAttribute="leading" secondItem="Eza-ab-i2y" secondAttribute="leading" id="eiw-eG-xr9"/>
+                            <constraint firstItem="7De-Uv-7B9" firstAttribute="leading" secondItem="oAR-J2-cPY" secondAttribute="leading" constant="204" id="gUd-pi-uZZ"/>
                             <constraint firstItem="xPj-WV-ZRV" firstAttribute="leading" secondItem="cIN-Z0-WO3" secondAttribute="leading" id="jEg-Id-saw"/>
-                            <constraint firstItem="qjX-h8-MYO" firstAttribute="top" secondItem="Eza-ab-i2y" secondAttribute="bottom" constant="61" id="kjd-b9-NdG"/>
-                            <constraint firstItem="oAR-J2-cPY" firstAttribute="trailing" secondItem="qjX-h8-MYO" secondAttribute="trailing" constant="35" id="l5P-Xb-vbD"/>
+                            <constraint firstItem="orZ-tt-vCX" firstAttribute="top" secondItem="Eza-ab-i2y" secondAttribute="bottom" constant="1" id="jmC-eZ-7S6"/>
                             <constraint firstItem="xPj-WV-ZRV" firstAttribute="top" secondItem="oAR-J2-cPY" secondAttribute="top" id="n69-qw-AzD"/>
                             <constraint firstItem="Eza-ab-i2y" firstAttribute="top" secondItem="kbf-g3-URI" secondAttribute="bottom" constant="8" symbolic="YES" id="pIE-JX-G9N"/>
-                            <constraint firstItem="0kK-Ni-W1T" firstAttribute="top" secondItem="Eza-ab-i2y" secondAttribute="bottom" constant="20" id="roc-BB-JnV"/>
-                            <constraint firstItem="T2g-cg-92G" firstAttribute="trailing" secondItem="qjX-h8-MYO" secondAttribute="trailing" id="zXO-01-f5W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oAR-J2-cPY"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="uA7-Ch-a4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Goo-GO-InV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1330,7 +1402,7 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
         <!--Evidence-Based-->
         <scene sceneID="gel-0q-ZMP">
             <objects>
-                <viewController storyboardIdentifier="learn7" title="Evidence-Based" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R8t-VI-Mse" customClass="LearnMoreViewController" customModule="pgx_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="learn8" title="Evidence-Based" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R8t-VI-Mse" customClass="LearnMoreViewController" customModule="pgx_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C37-QZ-vmQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1342,17 +1414,23 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 </constraints>
                                 <state key="normal" title="Button" image="screen23image2"/>
                                 <connections>
-                                    <action selector="PharmGKBClickedWithSender:" destination="R8t-VI-Mse" eventType="touchUpInside" id="pJO-E1-dUX"/>
+                                    <action selector="PharmGKBClicked:" destination="R8t-VI-Mse" eventType="touchUpInside" id="Yu7-oe-4Dw"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qa7-51-5PK">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="r6W-kh-rGn">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="e7R-Ha-W7w"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="e7R-Ha-W7w">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="R8t-VI-Mse" id="Nqq-1z-yv1"/>
+                                                <segue destination="DCT-gZ-jj4" kind="show" identifier="backToLearn7" id="y6t-Vk-ObH"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="NwH-or-UDS">
                                             <connections>
-                                                <action selector="NextBtnPress:" destination="GIa-a6-p07" id="vtj-tC-LhA"/>
+                                                <action selector="nextButtonPressed:" destination="R8t-VI-Mse" id="6SA-ff-l3l"/>
+                                                <segue destination="3Aq-ar-1Rv" kind="show" identifier="toLearn9" id="Wr2-fx-hu8"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1365,7 +1443,7 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 </constraints>
                                 <state key="normal" title="Button" image="screen23image1"/>
                                 <connections>
-                                    <action selector="CPICButtonClickWithSender:" destination="R8t-VI-Mse" eventType="touchUpInside" id="VlP-jl-QxH"/>
+                                    <action selector="CPICButtonClick:" destination="R8t-VI-Mse" eventType="touchUpInside" id="a3t-0l-Ji5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZl-DC-wAx">
@@ -1375,7 +1453,7 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 </constraints>
                                 <state key="normal" title="Button" image="screen23image3"/>
                                 <connections>
-                                    <action selector="PGRNClickedWithSender:" destination="R8t-VI-Mse" eventType="touchUpInside" id="JD4-J4-nwm"/>
+                                    <action selector="PGRNClicked:" destination="R8t-VI-Mse" eventType="touchUpInside" id="Hex-l0-rB5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDP-Bc-3aI">
@@ -1437,8 +1515,6 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                         <outlet property="backButton" destination="e7R-Ha-W7w" id="KGg-1C-vYZ"/>
                         <outlet property="nextButton" destination="NwH-or-UDS" id="bWP-HO-gyz"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="i4C-1X-OgF"/>
-                        <segue destination="hXz-gG-FnK" kind="show" identifier="toParentDrug" id="DZ2-wd-owj"/>
-                        <segue destination="3Aq-ar-1Rv" kind="show" identifier="toEducational" id="IHF-Ce-8jw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Op-E9-EQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1449,7 +1525,7 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
         <!--EdResources-->
         <scene sceneID="f7m-X1-VHE">
             <objects>
-                <viewController storyboardIdentifier="learn8" title="EdResources" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Aq-ar-1Rv" customClass="LearnMoreViewController" customModule="pgx_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="learn9" title="EdResources" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Aq-ar-1Rv" customClass="LearnMoreViewController" customModule="pgx_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lju-Pq-aE5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1468,14 +1544,14 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 <rect key="frame" x="198" y="578" width="177" height="48"/>
                                 <state key="normal" title="Button" image="screen24image1"/>
                                 <connections>
-                                    <action selector="G2C2ClickedWithSender:" destination="3Aq-ar-1Rv" eventType="touchUpInside" id="L2g-yd-C8g"/>
+                                    <action selector="G2C2Clicked:" destination="3Aq-ar-1Rv" eventType="touchUpInside" id="KOI-Vs-mDm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGM-3t-znl">
                                 <rect key="frame" x="16" y="564" width="174" height="74"/>
                                 <state key="normal" title="Button" image="screen24image"/>
                                 <connections>
-                                    <action selector="IgniteClickedWithSender:" destination="3Aq-ar-1Rv" eventType="touchUpInside" id="DOM-cy-sgy"/>
+                                    <action selector="IgniteClicked:" destination="3Aq-ar-1Rv" eventType="touchUpInside" id="5Jh-ob-acJ"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHg-fy-4V0">
@@ -1484,12 +1560,14 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                     <navigationItem id="1a4-4o-H24">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="JkT-bl-qKR">
                                             <connections>
-                                                <action selector="backBtnPressed:" destination="YM9-lR-O3b" id="gFZ-eR-qLy"/>
+                                                <action selector="backButtonPressed:" destination="3Aq-ar-1Rv" id="hKu-dJ-qAC"/>
+                                                <segue destination="R8t-VI-Mse" kind="show" identifier="backToLearn8" id="PMA-yr-th2"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Return to Get Started" id="CIS-98-EUt">
                                             <connections>
-                                                <action selector="homeBtnPressed:" destination="YM9-lR-O3b" id="Oh7-RG-EKB"/>
+                                                <action selector="nextButtonPressed:" destination="3Aq-ar-1Rv" id="AF5-bf-kiI"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="NGB-5J-WKa"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1542,8 +1620,6 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                     <connections>
                         <outlet property="backButton" destination="JkT-bl-qKR" id="8Eq-TT-ENO"/>
                         <outlet property="backButtonToGetStarted" destination="CIS-98-EUt" id="lI1-oK-79Z"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="HtZ-5v-TBy"/>
-                        <segue destination="R8t-VI-Mse" kind="show" identifier="toEvidence" id="Bhi-7p-Geq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5N-Aq-h5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1566,13 +1642,14 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                         <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="aSJ-fc-Qrx">
                                             <connections>
+                                                <action selector="backButtonPressed:" destination="8zB-41-42w" id="lJd-c0-jtP"/>
                                                 <segue destination="BYZ-38-t0r" kind="show" identifier="backToGetStarted" id="3Rc-vu-evg"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="CRO-Pe-HsR">
                                             <connections>
                                                 <action selector="drugNextPressed:" destination="8zB-41-42w" id="1mU-K6-LVT"/>
-                                                <segue destination="GIa-a6-p07" kind="show" id="wKE-a7-Hps"/>
+                                                <segue destination="GIa-a6-p07" kind="show" identifier="toAlleles" id="wKE-a7-Hps"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1660,6 +1737,7 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                         <outlet property="DrugPickerBtn" destination="rE3-xx-UQl" id="XwM-7h-pDG"/>
                         <outlet property="GenePicker" destination="9NM-Fc-IjM" id="YHH-k0-aF8"/>
                         <outlet property="GenePickerBtn" destination="w6R-q0-pqK" id="o5p-a5-egX"/>
+                        <outlet property="backButtonToGetStarted" destination="aSJ-fc-Qrx" id="15F-0z-Zur"/>
                         <outlet property="nextButtonToAllele" destination="CRO-Pe-HsR" id="rG5-q5-fdv"/>
                     </connections>
                 </viewController>
@@ -1684,6 +1762,7 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                     <navigationItem id="vFB-xu-tZF">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="9EX-bz-gFR">
                                             <connections>
+                                                <action selector="BackBtnPress:" destination="GIa-a6-p07" id="SKU-v7-5b1"/>
                                                 <segue destination="8zB-41-42w" kind="show" identifier="backToDrugs" id="HyB-Y8-XyC"/>
                                             </connections>
                                         </barButtonItem>
@@ -1696,13 +1775,13 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dosing guidelines for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRZ-S4-QHT">
-                                <rect key="frame" x="26" y="87" width="323.5" height="38.5"/>
+                                <rect key="frame" x="25.5" y="87" width="324" height="39"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.42352941179999998" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gene" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbL-qm-7yH">
-                                <rect key="frame" x="163.5" y="143.5" width="48" height="23.5"/>
+                                <rect key="frame" x="163.5" y="143" width="48" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.32947236299514771" green="0.55299973487854004" blue="0.70607751607894897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1718,14 +1797,14 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drug" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lf2-U9-6Xu">
-                                <rect key="frame" x="166" y="226" width="43.5" height="23.5"/>
+                                <rect key="frame" x="165.5" y="226" width="44" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.32947236299514771" green="0.55299973487854004" blue="0.70607751607894897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Pick the alleles:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htF-gd-nPZ">
-                                <rect key="frame" x="68" y="263.5" width="239" height="38.5"/>
+                                <rect key="frame" x="68" y="264" width="239" height="39"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.13725490200000001" green="0.42352941179999998" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1736,35 +1815,30 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIK-hf-dLV" userLabel="Allele2Picker">
                                 <rect key="frame" x="27" y="420" width="321" height="216"/>
                             </pickerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="D1F-8f-Is4">
-                                <rect key="frame" x="110" y="327" width="154" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-jE-YMj">
-                                        <rect key="frame" x="0.0" y="0.0" width="53" height="33"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Allele1">
-                                            <color key="titleColor" red="0.13725490200000001" green="0.42352941179999998" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Allele1BtnPressed:" destination="GIa-a6-p07" eventType="touchUpInside" id="PM4-A7-rHY"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mou-Ah-hnX">
-                                        <rect key="frame" x="101" y="0.0" width="53" height="33"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Allele2">
-                                            <color key="titleColor" red="0.13725490200000001" green="0.42352941179999998" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Allele2BtnPressed:" destination="GIa-a6-p07" eventType="touchUpInside" id="uhN-6A-326"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="right" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mou-Ah-hnX">
+                                <rect key="frame" x="306" y="317" width="53" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Allele2">
+                                    <color key="titleColor" red="0.13725490200000001" green="0.42352941179999998" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Allele2BtnPressed:" destination="GIa-a6-p07" eventType="touchUpInside" id="uhN-6A-326"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="left" semanticContentAttribute="spatial" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-jE-YMj">
+                                <rect key="frame" x="16" y="317" width="53" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Allele1">
+                                    <color key="titleColor" red="0.13725490200000001" green="0.42352941179999998" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Allele1BtnPressed:" destination="GIa-a6-p07" eventType="touchUpInside" id="PM4-A7-rHY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="A7V-jE-YMj" firstAttribute="leading" secondItem="heK-xc-Xyx" secondAttribute="leading" id="0xb-rT-LEP"/>
                             <constraint firstItem="ZRZ-S4-QHT" firstAttribute="top" secondItem="Ygc-e9-GL7" secondAttribute="bottom" constant="19" id="1dk-kO-W2W"/>
                             <constraint firstItem="Ygc-e9-GL7" firstAttribute="centerX" secondItem="heK-xc-Xyx" secondAttribute="centerX" id="2ME-Dg-oXW"/>
                             <constraint firstItem="dUY-Vb-gJi" firstAttribute="centerX" secondItem="RbL-qm-7yH" secondAttribute="centerX" id="6Eq-GH-S5d"/>
@@ -1772,9 +1846,12 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                             <constraint firstItem="dUY-Vb-gJi" firstAttribute="centerX" secondItem="lf2-U9-6Xu" secondAttribute="centerX" id="BTi-lk-LXW"/>
                             <constraint firstItem="Ygc-e9-GL7" firstAttribute="leading" secondItem="d0W-f5-APL" secondAttribute="leading" id="FyK-Gt-Kpk"/>
                             <constraint firstItem="ZIK-hf-dLV" firstAttribute="centerY" secondItem="heK-xc-Xyx" secondAttribute="centerY" constant="34" id="Hy6-HK-eRJ"/>
+                            <constraint firstItem="Mou-Ah-hnX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A7V-jE-YMj" secondAttribute="trailing" constant="8" symbolic="YES" id="Jpt-GM-PJx"/>
                             <constraint firstItem="Ixd-Xa-A0O" firstAttribute="bottom" secondItem="heK-xc-Xyx" secondAttribute="bottom" constant="65" id="LgD-WX-yW5"/>
                             <constraint firstItem="lf2-U9-6Xu" firstAttribute="top" secondItem="dUY-Vb-gJi" secondAttribute="bottom" constant="21" id="RuO-DC-gWR"/>
+                            <constraint firstItem="A7V-jE-YMj" firstAttribute="baseline" secondItem="Mou-Ah-hnX" secondAttribute="baseline" id="SaV-4O-6Bl"/>
                             <constraint firstItem="Ygc-e9-GL7" firstAttribute="top" secondItem="Ixd-Xa-A0O" secondAttribute="top" constant="4" id="Uc8-k6-FD2"/>
+                            <constraint firstItem="Mou-Ah-hnX" firstAttribute="centerY" secondItem="d0W-f5-APL" secondAttribute="centerY" id="b7J-sS-tpd"/>
                             <constraint firstItem="heK-xc-Xyx" firstAttribute="centerX" secondItem="ZIK-hf-dLV" secondAttribute="centerX" id="dAn-HJ-LVp"/>
                             <constraint firstItem="dUY-Vb-gJi" firstAttribute="centerX" secondItem="ZRZ-S4-QHT" secondAttribute="centerX" id="hdX-54-aSv"/>
                             <constraint firstItem="htF-gd-nPZ" firstAttribute="top" secondItem="lf2-U9-6Xu" secondAttribute="bottom" constant="14" id="ihF-LP-VaU"/>
@@ -1782,6 +1859,7 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
                             <constraint firstItem="Ygc-e9-GL7" firstAttribute="centerX" secondItem="ZRZ-S4-QHT" secondAttribute="centerX" id="ja9-KB-ZpL"/>
                             <constraint firstItem="heK-xc-Xyx" firstAttribute="leading" secondItem="d0W-f5-APL" secondAttribute="leadingMargin" id="oxH-14-BpY"/>
                             <constraint firstItem="ZIK-hf-dLV" firstAttribute="leading" secondItem="Ixd-Xa-A0O" secondAttribute="leading" constant="27" id="pLH-Pb-f1E"/>
+                            <constraint firstItem="Mou-Ah-hnX" firstAttribute="trailing" secondItem="heK-xc-Xyx" secondAttribute="trailing" id="sEK-i0-Cqw"/>
                             <constraint firstItem="dUY-Vb-gJi" firstAttribute="top" secondItem="RbL-qm-7yH" secondAttribute="bottom" constant="17" id="vBu-4X-j73"/>
                             <constraint firstItem="dUY-Vb-gJi" firstAttribute="top" secondItem="d0W-f5-APL" secondAttribute="top" constant="184" id="wS9-hy-pCv"/>
                             <constraint firstItem="dUY-Vb-gJi" firstAttribute="leading" secondItem="Ixd-Xa-A0O" secondAttribute="leading" constant="166" id="yaM-QN-BLz"/>
@@ -1830,17 +1908,18 @@ Pro Drug: Formulated in its inactive state and must be broken down by enzymes in
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HyB-Y8-XyC"/>
-        <segue reference="myq-4A-c7g"/>
-        <segue reference="DZ2-wd-owj"/>
-        <segue reference="1vS-Hi-dqf"/>
-        <segue reference="iC0-Zc-U2L"/>
-        <segue reference="cpP-7L-2dq"/>
-        <segue reference="fZ2-JQ-ity"/>
-        <segue reference="RX0-H6-0f5"/>
-        <segue reference="xR5-uN-PNX"/>
-        <segue reference="Wc1-j8-iQg"/>
-        <segue reference="hMD-Cs-wJc"/>
-        <segue reference="Gjf-5J-3jz"/>
-        <segue reference="CAX-0d-bqN"/>
+        <segue reference="PMA-yr-th2"/>
+        <segue reference="y6t-Vk-ObH"/>
+        <segue reference="kc0-eM-QNp"/>
+        <segue reference="je7-BO-cZa"/>
+        <segue reference="IJI-x2-WLB"/>
+        <segue reference="zqK-1p-c9A"/>
+        <segue reference="xEh-Ov-38g"/>
+        <segue reference="NrN-zz-7Lu"/>
+        <segue reference="NGB-5J-WKa"/>
+        <segue reference="pAA-02-4Fp"/>
+        <segue reference="6bZ-f5-c1t"/>
+        <segue reference="fLK-Xk-Kpo"/>
+        <segue reference="qSq-eX-QY8"/>
     </inferredMetricsTieBreakers>
 </document>

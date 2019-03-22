@@ -116,9 +116,11 @@ class DrugViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
     }
     @IBAction func drugNextPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "AlleleViewController", sender: self)
+        self.performSegue(withIdentifier: "AlleleViewController", sender: nextButtonToAllele)
     }
-    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "backToGetStarted", sender: backButtonToGetStarted)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let alert = UIAlertController(title: "Missing Field", message: "Please make sure all fields are chosen", preferredStyle: UIAlertController.Style.alert)
@@ -128,12 +130,8 @@ class DrugViewController: UIViewController, UIPickerViewDataSource, UIPickerView
                 if selectedGene == "" || selectedDrug == "" {
                     self.present(alert, animated: true)
                 }
-            }else {
-                performSegue(withIdentifier: "backToGetStarted", sender: backButtonToGetStarted)
             }
-            
         }
     }
-        
 }
 

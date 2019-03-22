@@ -133,7 +133,10 @@ class AlleleViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     //does 1S need to be *1s?!?!?
     
     @IBAction func NextBtnPress(_ sender: Any) {
-        performSegue(withIdentifier: "S1", sender: self)
+        performSegue(withIdentifier: "S1", sender: toMetabolizerNextButton)
+    }
+    @IBAction func BackBtnPress(_ sender: Any) {
+        performSegue(withIdentifier: "backToDrugs", sender: BackButton)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -144,8 +147,6 @@ class AlleleViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 if selectedGene == "" || selectedDrug == "" {
                     self.present(alert, animated: true)
                 }
-            } else {
-                performSegue(withIdentifier: "backToDrugs", sender: self)
             }
         }
     }
